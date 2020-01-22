@@ -4,17 +4,11 @@
     <description>
         Jabberwocky Head Tracking Kit for iOS - Cordova Plugin
     </description>
-    
     <dependency id="cordova-plugin-cocoapod-support"/>
-
     <platform name="ios">
-        <!-- optionally set minimum ios version and enable use_frameworks! -->
         <pods-config ios-min-version="12.0" use-frameworks="true">
             <source url="git@github.com:swiftablellc/jabberwocky-head-tracking-kit-ios.git"/>
         </pods-config>
-        <!-- use a specific version of a pod -->
         <pod name="JabberwockyHTKit" version="0.1.0" />
-        <!-- use a custom repo -->
-        <!-- <pod name="JabberwockyHTKit" git="https://github.com/swiftablellc/jabberwocky-head-tracking-kit-ios.git" tag="0.1.0" /> -->
     </platform>
 </plugin>
