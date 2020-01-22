@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "name": "org.swiftable.jabberwocky.cordova.plugin",
+  "cordova_name": "JabberwockyHTKit",
+  "description": "Jabberwocky Head Tracking Kit for iOS installed through Cordova Plugin",
+  "license": "MIT",
+  "repo": "https://github.com/swiftablellc/jabberwocky-cordova-plugin-ios.git",
+  "keywords": [
+    "jabberwocky",
+    "head",
+    "tracking"
+  ],
+  "platforms": [
+    "ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ]
+}
