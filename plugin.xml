@@ -9,6 +9,6 @@
         <pods-config ios-min-version="12.0" use-frameworks="true">
             <source url="git@github.com:swiftablellc/jabberwocky-head-tracking-kit-ios.git"/>
         </pods-config>
-        <pod name="JabberwockyHTKit" version="0.1.0" />
+        <pod name="JabberwockyHTKit" version="0.2.0" />
     </platform>
 </plugin>

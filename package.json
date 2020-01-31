@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "name": "org.swiftable.jabberwocky.cordova.plugin",
   "cordova_name": "JabberwockyHTKit",
   "description": "Jabberwocky Head Tracking Kit for iOS installed through Cordova Plugin",
