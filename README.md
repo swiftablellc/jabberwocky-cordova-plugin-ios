@@ -17,7 +17,7 @@ cordova plugin add https://github.com/swiftablellc/jabberwocky-cordova-plugin-io
 
 ### Add Camera Permissions to *-Info.plist
 
-* Add `NSCameraUsageDescription` to platforms/ios/$PROEJCT/$PROJECT-Info.plist
+* Add `NSCameraUsageDescription` to platforms/ios/$PROJECT/$PROJECT-Info.plist
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
