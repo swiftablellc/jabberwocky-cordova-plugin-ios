@@ -9,6 +9,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <objc/runtime.h>
 #import <HTKit/HTKit-Swift.h>
+#import "CustomClickFeature.h"
 
 @interface HeadTracking : CDVPlugin
 @end
@@ -25,19 +26,32 @@
 
 - (void)start:(CDVInvokedUrlCommand*)command
 {
-    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-        NSLog(@"Requested Camera Permission");
-        if(granted){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [HeadTracking configureWithSettingsAppGroup: nil completion: ^void {
-                    NSLog(HeadTracking.shared.isEnabled? @"Head Tracking Enabled" : @"Head Tracking Not Enabled.");
-                }];
-            });
-        } else {
-            NSLog(@"Camera Permissions Missing for Head Tracking");
-        }
+    [HeadTracking ifConfiguredElseWithConfiguredCompletion: ^(HeadTracking* shared) {
+        [shared enableWithCompletion: ^(BOOL success) {
+            NSLog(success? @"Head Tracking Re-enabled.": @"Head Tracking Not Enabled.");
+        }];
+    } notConfiguredCompletion: ^void { 
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            NSLog(@"Requested Camera Permission");
+            if(granted){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [HeadTracking configureWithSettingsAppGroup: nil completion: ^void {
+                        // Disable all Default Features except for Cursor Draw Feature
+                        for (id feature in HeadTracking.shared.features) {
+                            if (![feature isKindOfClass:[CursorDrawFeature class]]) {
+                                [feature disable];
+                            }
+                        }
+                        NSArray* customFeatures = [NSArray arrayWithObject: [CustomClickFeature self]];
+                        [HeadTracking withAdditionalFeatures: customFeatures];
+                        NSLog(HeadTracking.shared.isEnabled? @"Head Tracking Configured and Enabled" : @"Head Tracking Configured but not enabled.");
+                    }];
+                });
+            } else {
+                NSLog(@"Camera Permissions Missing for Head Tracking");
+            }
+        }];
     }];
-
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"subscribed"];
     [pluginResult setKeepCallbackAsBool:YES]; // here we tell Cordova not to cleanup the callback id after sendPluginResult()
     triggerCallbackId = command.callbackId;
@@ -46,7 +60,9 @@
 
 - (void)stop:(CDVInvokedUrlCommand*)command
 {
-    // [HeadTracking stopTracking];
+    // To disable across sessions -- [HeadTracking.shared disable];
+    // Disable Head Tracking Temporarily
+    [HeadTracking.shared deactivateCameraWindow];
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"stopped"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
