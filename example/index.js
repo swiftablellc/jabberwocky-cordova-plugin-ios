@@ -26,7 +26,6 @@ var app = {
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
 
-        var defaultFeatures = JabberwockyHeadTracking.DEFAULT_CORDOVA_FEATURES
         var jabberwocky = window.plugins.JabberwockyHeadTracking
 
         jabberwocky.addHeadTrackingEventObserver(function(state) {
@@ -53,7 +52,7 @@ var app = {
                 console.log("Cursor On Edge Too Long!");
         });
 
-        jabberwocky.configure(defaultFeatures, function() {
+        jabberwocky.configure(jabberwocky.DEFAULT_CORDOVA_FEATURES, function() {
             jabberwocky.enable(function() {
                 jabberwocky.getSettings(function(state) {
                     console.log(state);
