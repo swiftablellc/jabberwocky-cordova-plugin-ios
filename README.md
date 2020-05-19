@@ -3,13 +3,13 @@ The Jabberwocky® Head Tracking Kit (JabberwockyHTKit) is an open-source iOS fra
 
 ## Installation
 
-### Create cordova Project
+### Create Cordova Project
 ```shell script
 cordova create jabberwocky-cordova-app example.jabberwocky.cordova JabberwockyCordovaExample && cd jabberwocky-cordova-app
 ```
 
-### Modify `config.xml`
-* Set the iOS deployment target to `12.0`
+### Set Correct Deployment Target
+* Set the iOS deployment target to `12.0` in the root `config.xml`
 
 ```xml
 <widget ...>
@@ -39,14 +39,14 @@ cordova plugin add https://github.com/swiftablellc/jabberwocky-cordova-plugin-io
 
 onDeviceReady: function() {
 ...
-    var defaultFeatures = JabberwockyHeadTracking.DEFAULT_CORDOVA_FEATURES
-    var jabberwocky = window.plugins.JabberwockyHeadTracking
+    var defaultFeatures = JabberwockyHeadTracking.DEFAULT_CORDOVA_FEATURES;
+    var jabberwocky = window.plugins.JabberwockyHeadTracking;
 
     jabberwocky.configure(defaultFeatures, function() {
         jabberwocky.enable(function() {
-            console.log("Jabberwocky Enabled!")
-        }
-    }
+            console.log("Jabberwocky Enabled!");
+        });
+    });
 ...
 }
 ```
