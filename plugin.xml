@@ -6,7 +6,7 @@ The Jabberwocky® Head Tracking Kit (JabberwockyHTKit) is an open-source iOS fra
     </description>
     <author>Swiftable LLC</author>
     <repo>git@github.com:swiftablellc/jabberwocky-cordova-plugin-ios.git</repo>
-    <keywords>ecosystem:cordova,cordova,cordova-ios,jabberwocky,head,tracking</keywords>
+    <keywords>cordova,jabberwocky,head,tracking</keywords>
     <license>Apache 2.0 License</license>
     <engines>
         <engine name="cordova" version=">=6.4.0"/>
