@@ -1,14 +1,38 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<plugin id="jabberwocky-cordova-plugin-ios" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
-    <name>Jabberwocky Head Tracking Kit</name>
+<plugin id="cordova-plugin-jabberwocky-head-tracking-ios" version="0.3.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>Jabberwocky Head Tracking Kit Cordova Plugin for iOS</name>
     <description>
-        Jabberwocky Head Tracking Kit for iOS - Cordova Plugin
+        The Jabberwocky® Head Tracking Kit (JabberwockyHTKit) is an open-source iOS framework, developed by Swiftable LLC, that provides a touch-free interface for existing iOS applications. Jabberwocky enables users to interact with an application by just moving their head. Head movement translates into the movement of a mouse-like cursor on the screen. Cursor location and blink events can be subscribed to allowing actions to be performed in Cordova.
     </description>
-    <dependency id="cordova-plugin-cocoapod-support"/>
+    <author>Swiftable LLC</author>
+    <repo>git@github.com:swiftablellc/jabberwocky-cordova-plugin-ios.git</repo>
+    <keywords>ecosystem:cordova,cordova,cordova-ios,jabberwocky,head,tracking</keywords>
+    <license>Apache 2.0 License</license>
+    <engines>
+        <engine name="cordova" version=">=6.4.0"/>
+        <engine name="cordova-ios" version=">=4.3.0"/>
+    </engines>
+    <js-module src="www/jabberwocky-head-tracking.js" name="JabberwockyHeadTracking">
+        <clobbers target="JabberwockyHeadTracking"/>
+    </js-module>
     <platform name="ios">
-        <pods-config ios-min-version="12.0" use-frameworks="true">
-            <source url="git@github.com:swiftablellc/jabberwocky-head-tracking-kit-ios.git"/>
-        </pods-config>
-        <pod name="JabberwockyHTKit" version="0.2.0" />
+        <config-file target="config.xml" parent="/*">
+            <feature name="JabberwockyHeadTracking">
+                <param name="ios-package" value="JabberwockyHeadTracking"/>
+            </feature>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>Jabberwocky Head Tracking requires Camera Permissions.</string>
+        </config-file>
+        <source-file src="src/ios/JabberwockyHeadTracking.swift"/>
+        <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
+        <podspec>
+            <config>
+                <source url="https://github.com/swiftablellc/jabberwocky-specs-repo"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="JabberwockyHTKit" spec="~> 0.7.0"/>
+            </pods>
+        </podspec>
     </platform>
 </plugin>
