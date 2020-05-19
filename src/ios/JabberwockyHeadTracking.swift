@@ -65,7 +65,7 @@ public class JabberwockyHeadTracking : CDVPlugin {
 
     @objc func enable(_ command: CDVInvokedUrlCommand) {
         DispatchQueue.main.async {
-            HeadTracking.shared.enable(overrideDisabledFlag: false, completion: {
+            HeadTracking.shared.enable(completion: {
                 if $0 {
                     self.successCallback(callbackId: command.callbackId, data: [:])
                 } else {
