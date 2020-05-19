@@ -39,10 +39,9 @@ cordova plugin add https://github.com/swiftablellc/jabberwocky-cordova-plugin-io
 
 onDeviceReady: function() {
 ...
-    var defaultFeatures = JabberwockyHeadTracking.DEFAULT_CORDOVA_FEATURES;
     var jabberwocky = window.plugins.JabberwockyHeadTracking;
 
-    jabberwocky.configure(defaultFeatures, function() {
+    jabberwocky.configure(jabberwocky.DEFAULT_CORDOVA_FEATURES, function() {
         jabberwocky.enable(function() {
             console.log("Jabberwocky Enabled!");
         });
