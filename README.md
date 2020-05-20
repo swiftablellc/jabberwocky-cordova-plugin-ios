@@ -61,4 +61,11 @@ onDeviceReady: function() {
 
 ## Test
 
-* Run on a physical device (FaceID device required).
+* Run on a physical device (FaceID capability required).
+
+## Trademarks
+
+Jabberwocky® is a registered trademark of Swiftable LLC.
+
+## License
+[Apache 2.0 License](LICENSE)
