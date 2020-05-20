@@ -52,7 +52,7 @@ var app = {
                 console.log("Cursor On Edge Too Long!");
         });
 
-        jabberwocky.configure(jabberwocky.DEFAULT_CORDOVA_FEATURES, function() {
+        jabberwocky.configure(jabberwocky.getDefaultCordovaFeatures(), function() {
             jabberwocky.enable(function() {
                 jabberwocky.getSettings(function(state) {
                     console.log(state);

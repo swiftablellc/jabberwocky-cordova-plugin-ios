@@ -41,7 +41,7 @@ onDeviceReady: function() {
 ...
     var jabberwocky = window.plugins.JabberwockyHeadTracking;
 
-    jabberwocky.configure(jabberwocky.DEFAULT_CORDOVA_FEATURES, function() {
+    jabberwocky.configure(jabberwocky.getDefaultCordovaFeatures(), function() {
         jabberwocky.enable(function() {
             console.log("Jabberwocky Enabled!");
         });

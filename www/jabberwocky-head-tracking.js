@@ -16,23 +16,25 @@ limitations under the License.
 
 var JabberwockyHeadTracking = function() {}
 
+JabberwockyHeadTracking._headTrackingEventObservers = [];
+
+JabberwockyHeadTracking._processFunctionList = function(array, param) {
+    for (var i = 0; i < array.length; i++)
+        array[i](param);
+};
+
 /*
  Default HTFeature list for Cordova. Any HTFeature implementation can be loaded, but will need to be prefixed
  by the owning Framework. If it is defined in the cordova app then use the current app name.
 
  @see https://github.com/swiftablellc/jabberwocky-head-tracking-kit-ios/tree/master/JabberwockyHTKit/Features
  */
-JabberwockyHeadTracking.DEFAULT_CORDOVA_FEATURES = ["JabberwockyHTKit.BannerWarningsFeature",
-                                                    "JabberwockyHTKit.CoreEventProxyFeature",
-                                                    "JabberwockyHTKit.CursorDrawFeature",
-                                                    "JabberwockyHTKit.CursorRecalibrationFeature",
-                                                    "JabberwockyHTKit.RemoteSettingsFeature"];
-
-JabberwockyHeadTracking._headTrackingEventObservers = [];
-
-JabberwockyHeadTracking._processFunctionList = function(array, param) {
-    for (var i = 0; i < array.length; i++)
-        array[i](param);
+JabberwockyHeadTracking.prototype.getDefaultCordovaFeatures = function() {
+   return ["JabberwockyHTKit.BannerWarningsFeature",
+           "JabberwockyHTKit.CoreEventProxyFeature",
+           "JabberwockyHTKit.CursorDrawFeature",
+           "JabberwockyHTKit.CursorRecalibrationFeature",
+           "JabberwockyHTKit.RemoteSettingsFeature"];
 };
 
 JabberwockyHeadTracking.prototype.configure = function(features, onSuccess, onFailure) {
