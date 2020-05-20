@@ -34,7 +34,7 @@ cordova create jabberwocky-cordova-app example.jabberwocky.cordova JabberwockyCo
 cordova platform add ios
 ```
 
-### Install Jabberwocky HTKit Plugin
+### Install Jabberwocky Cordova Plugin
 
 ```shell script
 cordova plugin add https://github.com/swiftablellc/jabberwocky-cordova-plugin-ios.git
