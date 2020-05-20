@@ -31,7 +31,7 @@ The Jabberwocky® Head Tracking Kit (JabberwockyHTKit) is an open-source iOS fra
                 <source url="https://github.com/swiftablellc/jabberwocky-specs-repo"/>
             </config>
             <pods use-frameworks="true">
-                <pod name="JabberwockyHTKit" spec="~> 0.7.0"/>
+                <pod name="JabberwockyHTKit" spec="~> 0.7.1"/>
             </pods>
         </podspec>
     </platform>
