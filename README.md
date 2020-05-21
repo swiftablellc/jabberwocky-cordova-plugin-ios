@@ -65,11 +65,11 @@ onDeviceReady: function() {
 
 ## Release (Swiftable Devs Only)
 
-1. Navigate to jabberwocky-head-tracking-kit-ios-binary directory
+1. Navigate to jabberwocky-cordova-plugin-ios directory
     * `git pull`
-2. Update the JabberwockyHTKit.podspec file.
+2. Update Version
     * Modify the version number in plugin.xml.
-    * Modify the version number in the package.json.
+    * Run `plugman createpackagejson .`.
 3. Prepare Release Commit
     * `git add *`
     * `git commit -m 'Preparing <version> for release.'`
