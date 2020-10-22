@@ -18,6 +18,7 @@ import Foundation
 
 import AVFoundation
 import JabberwockyHTKit
+import JabberwockyARKitEngine
 
 
 @objc(JabberwockyHeadTracking)
@@ -52,8 +53,12 @@ public class JabberwockyHeadTracking : CDVPlugin {
                         }
                     }
                     DispatchQueue.main.async {
-                        HeadTracking.configure(withFeatures: htFeatures)
+                    if #available(iOS 11.0, *) {
+                        HeadTracking.configure(withEngine: ARKitHTEngine.self, withFeatures: htFeatures)
                         self.successCallback(callbackId: command.callbackId, data: [:])
+                    } else {
+                        NSLog("Jabberwocky Head Tracking requires iOS 11 or above to configure.")
+                        self.failureCallback(callbackId: command.callbackId, data: [:])
                     }
                 }
             } else {

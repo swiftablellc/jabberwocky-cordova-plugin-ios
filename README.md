@@ -17,17 +17,6 @@ See [JabberwockyHTKit](https://github.com/swiftablellc/jabberwocky-head-tracking
 cordova create jabberwocky-cordova-app example.jabberwocky.cordova JabberwockyCordovaExample && cd jabberwocky-cordova-app
 ```
 
-### Set Correct Deployment Target
-* Set the iOS deployment target to `12.0` in the root `config.xml`
-
-```xml
-<widget ...>
-...
-  <preference name="deployment-target" value="12.0" />
-...
-</widget>
-```
-
 ### Create iOS platform
 
 ```shell script
