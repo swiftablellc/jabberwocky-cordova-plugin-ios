@@ -12,6 +12,18 @@ See [JabberwockyHTKit](https://github.com/swiftablellc/jabberwocky-head-tracking
 
 ## Installation
 
+### Preflight Verification
+* `JabberwockyHTKit` requires CocoaPods version 1.10.0 or greater to operate correctly. 
+```shell script
+pod --version
+
+1.10.0
+```
+* An update to the newest version can be done using the following command:
+```shell script
+sudo gem install cocoapods
+```
+
 ### Create Cordova Project
 ```shell script
 cordova create jabberwocky-cordova-app example.jabberwocky.cordova JabberwockyCordovaExample && cd jabberwocky-cordova-app
