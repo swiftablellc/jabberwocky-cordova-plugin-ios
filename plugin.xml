@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<plugin id="cordova-plugin-jabberwocky-head-tracking-ios" version="0.3.4" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+<plugin id="cordova-plugin-jabberwocky-head-tracking-ios" version="0.4.1" xmlns="http://apache.org/cordova/ns/plugins/1.0">
     <name>Jabberwocky Head Tracking Kit Cordova Plugin for iOS</name>
     <description>
 The Jabberwocky® Head Tracking Kit (JabberwockyHTKit) is an open-source iOS framework, developed by Swiftable LLC, that provides a touch-free interface for existing iOS applications. Jabberwocky enables users to interact with an application by just moving their head. Head movement translates into the movement of a mouse-like cursor on the screen. Cursor location and blink events can be subscribed to allowing actions to be performed in Cordova.
